@@ -16,7 +16,9 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-
+app.configure('production', function() {
+  app.set('port', 8080)
+});
 
 app.use(favicon());
 app.use(logger('dev'));
